@@ -1,0 +1,32 @@
+pluginManagement {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()}
+    plugins {
+        id 'com.android.application'
+        id 'kotlin-android'
+        id 'com.google.gms.google-services'
+        id 'kotlin-android-extensions'
+        id 'kotlin-kapt'
+        id 'androidx.navigation.safeargs.kotlin'
+        id 'dagger.hilt.android.plugin'
+    }
+    resolutionStrategy {
+        eachPlugin {
+            if( requested.id.id == 'dagger.hilt.android.plugin') {
+                useModule("com.google.dagger:hilt-android-gradle-plugin:2.38.1")
+            }
+        }
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+    }
+}
+rootProject.name = "NewsApp"
+include ':app'

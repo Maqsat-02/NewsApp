@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">NewsApp</string>
+    <string name="search_news">Search News</string>
+    <string name="saved_news">Saved News</string>
+    <string name="breaking_news">Breaking News</string>
+    <string name="articleImage">ArticleImage</string>
+    <string name="no_account">Not have an account? <b>SignUp</b></string>
+    <string name="have_account">Have an account? <b>SignIn</b></string>
+    <string name="profile">Profile</string>
+</resources>
