@@ -3,6 +3,7 @@ package kz.iitu.newsapp.ui.fragments
 import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -24,8 +25,8 @@ class ProfileFragment: Fragment(R.layout.fragment_profile){
 
     //FirebaseAuth
     private lateinit var firebaseAuth: FirebaseAuth
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         //Configure
         actionBar = getActionbar()!!
@@ -39,8 +40,7 @@ class ProfileFragment: Fragment(R.layout.fragment_profile){
             checkUser()
         }
     }
-    fun getActionbar() : ActionBar?
-    {
+    fun getActionbar() : ActionBar? {
         return (activity as AppCompatActivity).supportActionBar
     }
     private fun checkUser() {
@@ -49,9 +49,10 @@ class ProfileFragment: Fragment(R.layout.fragment_profile){
             var email = firebaseUser.email
             emailTv.text = email
         }
-            activity?.let{
-                val intent = Intent (it, LoginActivity::class.java)
-                it.startActivity(intent)
+        else activity?.let{
+            val intent = Intent (it, LoginActivity::class.java)
+            it.startActivity(intent)
+
         }
     }
 }
